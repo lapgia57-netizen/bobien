@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lý thuyết lượng tử & thuật toán bó biên</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; background: #f9f9f9; }
+    #content { max-width: 800px; margin: auto; background: #fff; padding: 32px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.08);}
+    h1, h2, h3 { color: #13344b; }
+    pre, code { background: #f4f4f4; padding: 6px 12px; border-radius: 6px; }
+    a { color: #1170e1; }
+  </style>
+</head>
+<body>
+  <div id="content">Đang tải dữ liệu...</div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    // Đường dẫn tới file markdown, nếu ở cùng thư mục thì chỉ cần 'quantum_boundary.md'
+    const mdUrl = 'quantum_boundary.md';
+
+    fetch(mdUrl)
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById('content').innerHTML = marked.parse(text);
+      })
+      .catch(error => {
+        document.getElementById('content').innerHTML = 'Lỗi tải file Markdown: ' + error;
+      });
+  </script>
+</body>
+</html>
